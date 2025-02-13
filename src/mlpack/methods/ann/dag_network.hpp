@@ -30,8 +30,16 @@ public:
   size_t WeightSize();
 
   // Get / set the input dimensions
-  const std::vector<size_t>& InputDimensions() const;
-  std::vector<size_t>& InputDimensions();
+  const std::vector<size_t>& InputDimensions() const 
+  {
+    return inputDimensions;
+  }
+
+  std::vector<size_t>& InputDimensions()
+  {
+    inputDimensionsAreSet = false;
+    return inputDimensions;
+  }
 
   // Get / set the parameters
   const MatType& Parameters() const;
