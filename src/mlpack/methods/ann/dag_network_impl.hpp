@@ -92,6 +92,18 @@ DAGNetwork<InitializationRuleType, MatType>& DAGNetwork<
   return *this;
 }
 
+template<typename InitializationRuleType,
+         typename MatType>
+void DAGNetwork<
+    InitializationRuleType,
+    MatType
+>::SetNetworkMode(const bool training)
+{
+  for (size_t i = 0; i < network.size(); i++) {
+    network[i]->Training() = training;
+  }
+}
+
 } // namespace mlpack
 
 #endif
